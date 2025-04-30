@@ -1,4 +1,4 @@
-# Character Shape Generator 🎨
+# Character Shape Generator 
 A Java Swing-based GUI tool that generates ASCII-art shapes (squares, triangles, diamonds, pyramids) using simple text commands.
 
 ### Features ✨
