@@ -36,7 +36,7 @@ public class CharacterShapeGenerator extends JFrame {
         JPanel buttonPanel = new JPanel(new FlowLayout());
         buttonPanel.add(generateButton);
         buttonPanel.add(clearButton);
-        buttonPanel.add(helpButton);  // NEW: Add Help button
+        buttonPanel.add(helpButton);
 
         controlPanel.add(new JLabel("Enter command:"), BorderLayout.NORTH);
         controlPanel.add(commandField, BorderLayout.CENTER);
