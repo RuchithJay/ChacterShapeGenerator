@@ -65,7 +65,8 @@ public class CharacterShapeGenerator extends JFrame {
                         "- square (Example: # square 4)\n" +
                         "- triangle (Example: + triangle 6)\n" +
                         "- diamond (Example: @ diamond 5)\n" +
-                        "- pyramid (Example: X pyramid 3)\n\n" +
+                        "- pyramid (Example: X pyramid 3)\n" +
+                        "- heart (Example: ! heart 4)\n\n" +
                         "💡 TIP: If you don't specify size, it will be 5 by default.";
 
         JOptionPane.showMessageDialog(
@@ -124,7 +125,8 @@ public class CharacterShapeGenerator extends JFrame {
             case "heart":
                 return generateHeart(fillChar, size);
             default:
-                throw new IllegalArgumentException("Unknown shape type. Use square, triangle, diamond, or pyramid");
+                throw new IllegalArgumentException(
+                        "Unknown shape type. Use square, triangle, diamond, pyramid, or heart");
         }
     }
 
