@@ -11,6 +11,7 @@ A Java Swing-based GUI tool that generates ASCII-art shapes (squares, triangles,
      * ♥ Heart (e.g., ! heart 4)
 * Adjustable Size (1–20 rows, default=5)
 * Help menu available
+* Modern Nimbus look and feel
 
 ### How to Use 🚀
 1. Command Format: Enter commands in the format: `<character> <shape> [size]`

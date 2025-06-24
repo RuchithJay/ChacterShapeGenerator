@@ -3,6 +3,7 @@
 // Follow the readme for instructions or just press the [Help] button
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,15 +18,18 @@ public class CharacterShapeGenerator extends JFrame {
         setSize(600, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
+        setLocationRelativeTo(null); // center on screen
 
         // Create components
         outputArea = new JTextArea();
         outputArea.setEditable(false);
         outputArea.setFont(new Font("Monospaced", Font.PLAIN, 14));
+        outputArea.setBorder(new EmptyBorder(10, 10, 10, 10));
         JScrollPane scrollPane = new JScrollPane(outputArea);
 
         commandField = new JTextField();
         commandField.setFont(new Font("Monospaced", Font.PLAIN, 14));
+        commandField.setBorder(new EmptyBorder(5, 5, 5, 5));
 
         generateButton = new JButton("Generate");
         clearButton = new JButton("Clear");
@@ -33,7 +37,8 @@ public class CharacterShapeGenerator extends JFrame {
 
         // Create panel for controls
         JPanel controlPanel = new JPanel(new BorderLayout());
-        JPanel buttonPanel = new JPanel(new FlowLayout());
+        controlPanel.setBorder(new EmptyBorder(5, 10, 5, 10));
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         buttonPanel.add(generateButton);
         buttonPanel.add(clearButton);
         buttonPanel.add(helpButton);
@@ -210,11 +215,17 @@ public class CharacterShapeGenerator extends JFrame {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new CharacterShapeGenerator().setVisible(true);
+        // Use Nimbus look and feel if available
+        try {
+            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
             }
-        });
+        } catch (Exception ignored) {
+        }
+
+        SwingUtilities.invokeLater(() -> new CharacterShapeGenerator().setVisible(true));
     }
 }
